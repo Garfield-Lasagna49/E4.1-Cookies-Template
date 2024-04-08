@@ -16,8 +16,18 @@
 			</ul>
 			<form method="POST" action="/language">
 				<select name="language" onchange="this.form.submit()">
-					<option value="en">󠁧󠁢󠁥English</option>
-					<option value="fr">󠁧󠁢󠁥French</option>
+					{{#if frBool}}
+						<option value="en">󠁧󠁢󠁥English</option>
+						<option value="fr" selected>󠁧󠁢󠁥French</option>
+					{{else}}
+						{{#if enBool}}
+							<option value="en" selected>󠁧󠁢󠁥English</option>
+							<option value="fr">󠁧󠁢󠁥French</option>
+						{{else}}
+							<option value="en" selected>󠁧󠁢󠁥English</option>
+							<option value="fr">󠁧󠁢󠁥French</option>
+						{{/if}}
+					{{/if}}
 				</select>
 			</form>
 		</nav>

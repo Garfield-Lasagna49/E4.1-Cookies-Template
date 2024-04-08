@@ -44,6 +44,8 @@ export const getHome = async (req: IncomingMessage, res: ServerResponse) => {
     res.end(
         await renderTemplate("src/views/HomeView.hbs", {
             title: theMessage,
+            frBool: languageValue === "fr" ? true: false,
+            enBool: languageValue === "en" ? true: false
         }),
     );
 };
@@ -94,7 +96,7 @@ export const getOnePokemon = async (
 
     const id = Number(req.url?.split("/")[2]);
     const foundPokemon = database.find((pokemon) => pokemon.id === id);
-
+    
     if (!foundPokemon) {
         res.statusCode = 404;
         res.end(
@@ -148,6 +150,8 @@ export const getOnePokemon = async (
                 id: foundPokemon.id,
                 image: foundPokemon.image,
             },
+            frBool: languageValue === "fr" ? true: false,
+                enBool: languageValue === "en" ? true: false
         }),
     );
 };
@@ -218,6 +222,8 @@ export const getAllPokemon = async (
                       ? "List of Pokemon!"
                       : "List of Pokemon!",
             pokemon: languageMon,
+            frBool: languageValue === "fr" ? true: false,
+                enBool: languageValue === "en" ? true: false
         }),
     );
 };
