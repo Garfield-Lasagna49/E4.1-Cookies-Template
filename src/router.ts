@@ -1,5 +1,6 @@
 import { IncomingMessage, ServerResponse } from "http";
 import {
+    changeLanguage,
     getAllPokemon,
     getHome,
     getOnePokemon,
@@ -25,3 +26,4 @@ export const routes: Routes = {
 routes.GET["/"] = getHome;
 routes.GET["/pokemon"] = getAllPokemon;
 routes.GET["/pokemon/:id"] = getOnePokemon;
+routes.POST["/language"] = changeLanguage;
